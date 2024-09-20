@@ -1,0 +1,106 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/base/Ownable.sol": "Ownable"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/base/Context.sol": {
+			"keccak256": "0xbc7f2778f12564589c830c17efb202e1fd58f71d562b0314cc461c805fd1c2dd",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c934729d30c61df020ab8cc06c40e3511879eaeb61f2eac1e73b163f14c9215d",
+				"dweb:/ipfs/QmTiPeW3K44zhMbfHSe59x51sEiiTPhwXoCcTcHieQDLkG"
+			]
+		},
+		"contracts/base/Ownable.sol": {
+			"keccak256": "0xbfaae74ee4fa595e4207c98622f1fd40fb17003ca090f901a6c4c470f7f62d8d",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://8d675d0a221675f49376742ff4922f13e03dee2b8d56494ba3bbb1b423655d15",
+				"dweb:/ipfs/QmX56X6MJu1E3SRPoW3yMdMm1qodCGA4ycJkXLAyAt9z9x"
+			]
+		}
+	},
+	"version": 1
+}

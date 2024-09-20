@@ -1,0 +1,362 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelLimitOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemCTokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemUnderlyingAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "CloseLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemCtokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemUnderlyingAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "CloseShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isETH",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "account",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dealPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "ExecuteLimitOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "LimitOpenLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "LimitOpenShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenMint",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "OpenLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenMint",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "OpenShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isETH",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "underlyingAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "weth",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "usdc",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "uniswapV2Pair",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cETH",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cUSDC",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "comptroller",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "priceFeed",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/ITradingAccount.sol": "ITradingAccount"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/ITradingAccount.sol": {
+			"keccak256": "0x37487c8da8405caba6209dfbcb6c422698372af32489ec86c4d54f420a0324cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24d9c81222480ffdd7b511023ca0d654a4f80cc727a46a887c7db9ea41eca94d",
+				"dweb:/ipfs/QmZYuGXXZ6nGXJfAEv4pxQ9JxxADTcaRck3kZagQdb3tBK"
+			]
+		}
+	},
+	"version": 1
+}

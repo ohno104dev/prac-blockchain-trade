@@ -1,0 +1,1006 @@
+{
+	"compiler": {
+		"version": "0.8.27+commit.40a35a09"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelLimitOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemCTokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemUnderlyingAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "CloseLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemCtokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemUnderlyingAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "CloseShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isETH",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "account",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dealPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "ExecuteLimitOrder",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "LimitOpenLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "LimitOpenShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenMint",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "OpenLong",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenMint",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "borrowAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "OpenShort",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isETH",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cTokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "underlyingAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "cETH",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cUSDC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelLimitOrder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "closeLong",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "closeAll",
+						"type": "bool"
+					}
+				],
+				"name": "closeShort",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "repayAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "comptroller",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositETH",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositUSDC",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"name": "executeLimitOrder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLatestPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getLimitOrder",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isLong",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isCanceled",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openSize",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dealPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "weth_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "usdc_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "uniswapV2Pair_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cETH_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "cUSDC_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "comptroller_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "priceFeed_",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastCEthBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastCUsdcBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastOrderId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "limitOpenLong",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limitPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "limitOpenShort",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ethSize",
+						"type": "uint256"
+					}
+				],
+				"name": "openLong",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcSize",
+						"type": "uint256"
+					}
+				],
+				"name": "openShort",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "priceFeed",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount0",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "uniswapV2Call",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapV2Pair",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdc",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "weth",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "cEthAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawETH",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "cUsdcAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "usdcAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawUSDC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				]
+			},
+			"events": {
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				}
+			},
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TradingAccount.sol": "TradingAccount"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0xfe4e8bb4861bb3860ba890ab91a3b818ec66e5a8f544fb608cfcb73f433472cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://644cff84052e1e82b5bb502b2a46e8f142a62b0db4cd9b38200798ba8373c6f7",
+				"dweb:/ipfs/QmTa99QHrJBn3SXDizquPBUiTxVCNKQrHgaWJhuds5Sce2"
+			]
+		},
+		"@openzeppelin/contracts/proxy/utils/Initializable.sol": {
+			"keccak256": "0x631188737069917d2f909d29ce62c4d48611d326686ba6683e26b72a23bfac0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a61054ae84cd6c4d04c0c4450ba1d6de41e27e0a2c4f1bcdf58f796b401c609",
+				"dweb:/ipfs/QmUvtdp7X1mRVyC3CsHrtPbgoqWaXHp3S1ZR24tpAQYJWM"
+			]
+		},
+		"contracts/TradingAccount.sol": {
+			"keccak256": "0x3497be781c9daa4838827788b6389bbd123311e989ce67dad46fbcc435c12832",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d95851d725d40118adb711450e55be91f5e8b8b05aba2963fce0042afa3f1096",
+				"dweb:/ipfs/QmeYEddhPAVFvVSmeZVZ8JPTrLmjmTkzJxVz6JBvPojZH3"
+			]
+		},
+		"contracts/base/Context.sol": {
+			"keccak256": "0xbc7f2778f12564589c830c17efb202e1fd58f71d562b0314cc461c805fd1c2dd",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c934729d30c61df020ab8cc06c40e3511879eaeb61f2eac1e73b163f14c9215d",
+				"dweb:/ipfs/QmTiPeW3K44zhMbfHSe59x51sEiiTPhwXoCcTcHieQDLkG"
+			]
+		},
+		"contracts/base/Ownable.sol": {
+			"keccak256": "0xbfaae74ee4fa595e4207c98622f1fd40fb17003ca090f901a6c4c470f7f62d8d",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://8d675d0a221675f49376742ff4922f13e03dee2b8d56494ba3bbb1b423655d15",
+				"dweb:/ipfs/QmX56X6MJu1E3SRPoW3yMdMm1qodCGA4ycJkXLAyAt9z9x"
+			]
+		},
+		"contracts/interfaces/ICERC20.sol": {
+			"keccak256": "0x74c8647a613027c9d8da71785b9342af453c1521eee2788aed9363894bc6e852",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2e4277a6365da3fec75c694d9700063db1ca86abfe398bd76f6396b51d7a46c7",
+				"dweb:/ipfs/QmemdTQSvTxJirYHunk5mg7wnMArmqC3SF1ip1TANFkP9w"
+			]
+		},
+		"contracts/interfaces/ICEther.sol": {
+			"keccak256": "0x594a2fe8e5e29f4176c8ec0b527c35531a40a27fbae4818b688edc9904185e3f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2f5b58f34bf49de637ae70412f56150fb97e2bcf059b8990838a866d13794071",
+				"dweb:/ipfs/QmXLe4fcPjsmF1uW15PjSjvmSNMm4eyTFcTz4yUFAQh8AZ"
+			]
+		},
+		"contracts/interfaces/IComptroller.sol": {
+			"keccak256": "0xccad2f9cc8db26465163d23c9bbc61dda7d5ecfcbca92d4dc3505e6401a6beb3",
+			"license": "BSD-3-Clause",
+			"urls": [
+				"bzz-raw://7b0baf3079aab7237dbaefd522ccc2bce2c7d480a5f4bec3115b5a15f7d5c125",
+				"dweb:/ipfs/QmZwNWgQdqJBEWupD6M4bFVdsr28bs69L7AxA7Ybkojyn4"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0x13005ecf7cba588574563f1e2f8a9d166b4b23cbeec4e153584834db6a324120",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c7469e9231ec2fee28e304b4c3f69f70cf3d2bfab9d6d619c7676c52ac176712",
+				"dweb:/ipfs/QmPNNxicR8bCc2BbWnEa8UXxaSfhcxRU4XT5QGjLWG7Cm2"
+			]
+		},
+		"contracts/interfaces/ITradingAccount.sol": {
+			"keccak256": "0x37487c8da8405caba6209dfbcb6c422698372af32489ec86c4d54f420a0324cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24d9c81222480ffdd7b511023ca0d654a4f80cc727a46a887c7db9ea41eca94d",
+				"dweb:/ipfs/QmZYuGXXZ6nGXJfAEv4pxQ9JxxADTcaRck3kZagQdb3tBK"
+			]
+		},
+		"contracts/interfaces/IUniswapV2Callee.sol": {
+			"keccak256": "0x9ed976c95b27979dfc3eeadb1c18eb718777f84dfcde20894110504d3bd23abf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f67fec6b265a3918985dc576ea3ba06097de9d99ea28f1582c74bf3668509889",
+				"dweb:/ipfs/QmWZNBUJnE5vDfjj4AnSNgeSdGaTTBq2Tw2dod8ZVAjxo9"
+			]
+		},
+		"contracts/interfaces/IUniswapV2Pair.sol": {
+			"keccak256": "0xa29129427d857190003b025a966bfa454d13ca3ea8ba12ca6fe51a4430a396fd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b8b59a94c848e75d0670ff7766f19aa90e2320bc96f0c1c7eea9cf4a2d5ebc6a",
+				"dweb:/ipfs/Qme3PPU8ypza5AqqQBhvbNu8L5uRQaSU5qV9SCmcD38bRv"
+			]
+		},
+		"contracts/interfaces/IWETH.sol": {
+			"keccak256": "0x93183c03317a32b82d3ee6f733e73c4231b04e01a3d7585aa4d35e80efe8b5d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8e01d3756a2a07ac1f95de0a5ce5a1460f90807c175f2779c80b19213e0eddb0",
+				"dweb:/ipfs/QmQWBt2hQVLQU5wfEdaceLGYmRTL8nGNrjdQCZrEGcobMo"
+			]
+		},
+		"contracts/libraries/TransferHelper.sol": {
+			"keccak256": "0x1eb051490ee8fd40cec5f844eea0f3680ccb6e350a584d8729cbdb9150a05b03",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://733ececa13b2d14c0f5c50f40724eb0d534ae005381f65f97073fb0f49cb05ba",
+				"dweb:/ipfs/QmQkmR1EGSABeBmnDh7iAWDMbJrsxV6LYgyomMDSuhBDym"
+			]
+		}
+	},
+	"version": 1
+}
